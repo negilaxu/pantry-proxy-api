@@ -1,0 +1,23 @@
+{
+  "name": "pantry-proxy-api",
+  "version": "1.0.0",
+  "description": "Pantry Proxy API",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/negilaxu/pantry-proxy-API.git"
+  },
+  "license": "ISC",
+  "author": "ne.an",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.20.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "path": "^0.12.7"
+  }
+}
