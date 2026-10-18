@@ -19,6 +19,10 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.get("/favicon.ico", (req, res) => {
+  res.sendFile(path.join(__dirname, "favicon.ico"));
+});
+
 // Generic handle for GET request to fetch data from specific basket
 app.get("/:basketName", async (req, res) => {
   const { basketName } = req.params;
@@ -72,10 +76,6 @@ app.post("/:basketName", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-});
-
-app.get("/favicon.ico", (req, res) => {
-  res.sendFile(path.join(__dirname, "favicon.ico"));
 });
 
 app.listen(PORT, () => {
