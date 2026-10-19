@@ -6,24 +6,119 @@
     <title>Pantry API</title>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <style>
-        body {
+        :root {
+            color-scheme: light;
             font-family: Arial, Helvetica, sans-serif;
+            background: #f5f2eb;
+            color: #2f352d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            background: whitesmoke;
+            padding: 24px;
+            background:
+                radial-gradient(circle at top left, #fff8dc 0, transparent 32%),
+                #f5f2eb;
         }
-        
+
+        main {
+            width: min(100%, 520px);
+            padding: 44px 32px;
+            text-align: center;
+            background: #fffdf8;
+            border: 2px solid #ded8c9;
+            border-radius: 24px;
+            box-shadow: 0 16px 35px rgb(70 63 42 / 12%);
+        }
+
+        .jar {
+            display: inline-grid;
+            width: 72px;
+            height: 82px;
+            place-items: center;
+            margin-bottom: 18px;
+            font-size: 2.4rem;
+            background: #f7c873;
+            border: 4px solid #2f352d;
+            border-radius: 12px 12px 18px 18px;
+            transform: rotate(-4deg);
+        }
+
         h1 {
-            color: #333;
+            margin: 0;
+            font-size: clamp(2rem, 7vw, 3.2rem);
+            color: #2f352d;
+        }
+
+        p {
+            margin: 12px auto 26px;
+            max-width: 34ch;
+            line-height: 1.6;
+            color: #686b60;
+        }
+
+        button {
+            padding: 13px 20px;
+            font: inherit;
+            font-weight: 700;
+            color: #fffdf8;
+            cursor: pointer;
+            background: #597a55;
+            border: 0;
+            border-radius: 999px;
+            transition: transform 160ms ease, background 160ms ease;
+        }
+
+        button:hover {
+            background: #466744;
+            transform: translateY(-2px);
+        }
+
+        button:focus-visible {
+            outline: 3px solid #f1b84b;
+            outline-offset: 4px;
+        }
+
+        #status {
+            min-height: 1.5em;
+            margin-top: 22px;
+            font-weight: 700;
+            color: #597a55;
         }
 
     </style>
 </head>
 <body>
-    <h1>Pantry API is Live</h1>
-    
+    <main>
+        <div class="jar" aria-hidden="true">🥫</div>
+        <h1>Pantry API is Live</h1>
+        <p>A tiny pantry on the internet, ready to keep your data fresh.</p>
+        <button id="check-pantry" type="button">Peek inside</button>
+        <div id="status" role="status" aria-live="polite"></div>
+    </main>
+
+    <script>
+        const button = document.querySelector("#check-pantry");
+        const status = document.querySelector("#status");
+        const messages = [
+            "Everything is neatly stocked.",
+            "A mysterious snack was discovered.",
+            "The pantry approves your visit."
+        ];
+        let messageIndex = 0;
+
+        button.addEventListener("click", () => {
+            status.textContent = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+        });
+    </script>
 </body>
 </html>
