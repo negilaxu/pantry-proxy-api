@@ -28,7 +28,7 @@ app.get("/:basketName", async (req, res) => {
   const { basketName } = req.params;
   try {
     const response = await axios.get(`${PANTRY_API_BASE_URL}/${basketName}`);
-    res.json(response.dat);
+    res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -43,7 +43,7 @@ app.post("/:basketName", async (req, res) => {
       `${PANTRY_API_BASE_URL}/${basketName}`,
       newData,
     );
-    res.json(response.dat);
+    res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -58,14 +58,14 @@ app.put("/:basketName", async (req, res) => {
       `${PANTRY_API_BASE_URL}/${basketName}`,
       newData,
     );
-    res.json(response.dat);
+    res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
 // Generic handle for DELETE request to delete a specific basket
-app.post("/:basketName", async (req, res) => {
+app.delete("/:basketName", async (req, res) => {
   const { basketName } = req.params;
   try {
     const response = await axios.post(
