@@ -2,7 +2,7 @@
 
 A lightweight Express.js API that acts as a proxy between frontend applications and [Pantry Cloud](https://getpantry.cloud/).
 
-This project is useful for storing and managing JSON data without exposing the Pantry ID directly in the frontend. It also provides CORS support and simple REST endpoints for working with Pantry Cloud baskets.
+This project helps frontend applications store and manage JSON data without exposing the Pantry ID directly in the browser. It also provides CORS support and simple REST endpoints for working with Pantry Cloud baskets.
 
 ## Features
 
@@ -11,16 +11,11 @@ This project is useful for storing and managing JSON data without exposing the P
 - Update existing basket data
 - Delete basket data
 - CORS support
-- Easy local and Vercel deployment
+- Local and Vercel deployment support
 
 ## Installation
 
-```bash
-npm install# Pantry Proxy API
-
-A simple Express API proxy for Pantry Cloud.
-
-## Setup
+Clone the repository and install the dependencies:
 
 ```bash
 npm install
